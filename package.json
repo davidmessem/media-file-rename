@@ -1,0 +1,22 @@
+{
+  "name": "video-file-rename",
+  "version": "1.0.0",
+  "description": "Rename video files for easier identification and sorting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmessem/media-file-rename.git"
+  },
+  "author": "davidmessem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidmessem/media-file-rename/issues"
+  },
+  "homepage": "https://github.com/davidmessem/media-file-rename#readme",
+  "dependencies": {
+    "get-video-duration": "^3.0.0-beta.1"
+  }
+}

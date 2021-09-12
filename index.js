@@ -1,5 +1,8 @@
+#! /usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
+const moment = require('moment');
 const { getVideoDurationInSeconds } = require('get-video-duration')
 
 const fileExtension = process.argv[2]
@@ -47,10 +50,9 @@ fs.promises
     ))
   )
   .then(videosInfo => {
-    console.log("videosInfo", videosInfo)
     return Promise.all(
       videosInfo.map(videoInfo => {
-        const dateTime = videoInfo.birthTime.toISOString().substring(0, 16).replace('T', '__').replace(':', 'H')
+        const dateTime = moment(videoInfo.birthTime).format('YYYY-MM-DD__HH[H]mm');
         const newName = `${prepend}___${dateTime}___${videoInfo.duration}${videoInfo.extension}`
         console.log(`${videoInfo.name} -> ${newName}`)
         return fs.promises.rename(`${videoInfo.path}/${videoInfo.name}`, `${videoInfo.path}/${newName}`)
